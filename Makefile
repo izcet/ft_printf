@@ -6,16 +6,15 @@
 #    By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/20 19:43:49 by irhett            #+#    #+#              #
-#    Updated: 2017/03/20 19:43:49 by irhett           ###   ########.fr        #
+#    Updated: 2017/03/20 19:49:34 by irhett           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	ft_printf
+NAME		=	libftprintf
 
 CC			=	gcc
-CFLAGS		=	-Wall -Werror -Wextra
-XFLAGS		=	#-flags -for -X
-FLAGS		=	$(CFLAGS) $(XFLAGS)
+CFLAGS		=	-Wall -Werror -Wextra -c
+FLAGS		=	$(CFLAGS)
 
 SRC_DIR		=	src
 SRC_FILE	=	##!!##
@@ -26,8 +25,8 @@ OBJ_FILE	=	$(SRC_FILE:.c=.o)
 OBJS		=	$(addprefix $(OBJ_DIR)/, $(OBJ_FILE))
 
 LIBFT_DIR	=	libft
-LIBFT_LIB	=	libft.a #assuming project is named the same
-LIBFT_INC	=	#includes directory, if applicable
+LIBFT_LIB	=	libft.a
+LIBFT_INC	=	includes
 LIBFT		=	$(LIBFT_DIR)/$(LIBFT_LIB)
 
 INC_DIR		=	-I $(LIBFT_DIR)/$(LIBFT_INC) -I inc
