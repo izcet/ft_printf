@@ -6,15 +6,16 @@
 #    By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/20 19:43:49 by irhett            #+#    #+#              #
-#    Updated: 2017/03/20 19:49:34 by irhett           ###   ########.fr        #
+#    Updated: 2017/03/21 20:32:52 by irhett           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	libftprintf
+NAME		=	libftprintf.a
 
 CC			=	gcc
 CFLAGS		=	-Wall -Werror -Wextra -c
-FLAGS		=	$(CFLAGS)
+LIB			=	ar rc
+RLIB		=	ranlib
 
 SRC_DIR		=	src
 SRC_FILE	=	##!!##
@@ -36,7 +37,9 @@ INC_DIR		=	-I $(LIBFT_DIR)/$(LIBFT_INC) -I inc
 all: $(LIBFT) $(NAME)
 
 $(NAME): $(SRCS) | $(OBJS)
-	$(CC) $(FLAGS) $(LIBFT) $(OBJS) $(INC_DIR) -o $(NAME)
+	@$(LIB) $@ $(OBJS)
+	$(RLIB) $(NAME)
+	#$(CC) $(CFLAGS) $(LIBFT) $(OBJS) $(INC_DIR) -o $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	@$(CC) -c $^ $(CFLAGS) $(INC_DIR) -o $@
