@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   printf_handle.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/20 19:43:49 by irhett            #+#    #+#             */
-/*   Updated: 2017/03/22 22:32:57 by irhett           ###   ########.fr       */
+/*   Created: 2017/03/22 22:10:54 by irhett            #+#    #+#             */
+/*   Updated: 2017/03/22 22:32:37 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-#include "libft.h"
-#include <stdarg.h>
+// return the number of spaces to move along the string,
+// aka the number of characters interpreted that need to be skipped
+//
+// save the number of bytes written to { *len += n; }
 
-int		ft_printf(const char *str, ...);
-int		ft_printf_fd(int fd, const char *str, ...);
-int		printf_handle(char *str, int *len, va_list ap);
+int		printf_handle(char *str, int *len, va_list ap)
+{
+	int		ret;
 
-#endif
+	if (*str == '%')
+	{
+		ret = write(1, "%", 1);
+		(*len)++;
+		return (ret);
+	}
+
+
+
+
+}

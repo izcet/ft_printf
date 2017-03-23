@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/22 21:47:55 by irhett            #+#    #+#             */
-/*   Updated: 2017/03/22 22:32:31 by irhett           ###   ########.fr       */
+/*   Created: 2017/03/22 21:19:05 by irhett            #+#    #+#             */
+/*   Updated: 2017/03/22 21:47:24 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	printf_error(va_list ap)
 	return (-1);
 }
 
-int		ft_printf(const char *str, ...)
+int		ft_printf_fd(int fd, const char *str, ...)
 {
 	va_list	ap;
 	int		len;
@@ -34,17 +34,18 @@ int		ft_printf(const char *str, ...)
 	{
 		if (*str != '%')
 		{
-			ret = write(1, str, 1);
-			len++;
-			str++;
+			if (write(fd, str, 1) < 0)
+				return (printf_error(ap));
+			ret = 1;
 		}
 		else
 		{
-			ret = printf_handle(++str, &len, ap);
-			str += ret;
+			ret = 0; //handle(str, ap);
+			if (ret < 0)
+				return (printf_error(ap));
 		}
-		if (ret < 0)
-			return (printf_error(ap));
+		len += ret;
+		str += ret;
 	}
 	va_end(ap);
 	return (len);
