@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   handle_string_fd.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/20 19:43:49 by irhett            #+#    #+#             */
-/*   Updated: 2017/04/13 19:33:28 by irhett           ###   ########.fr       */
+/*   Created: 2017/04/13 18:13:07 by irhett            #+#    #+#             */
+/*   Updated: 2017/04/13 19:26:56 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-#include "libft.h"
-#include <stdarg.h>
+int		handle_string_fd(char *str, int fd)
+{
+	int		i;
+	int		bw;
 
-int		ft_printf(const char *str, ...);
-int		ft_printf_fd(int fd, const char *str, ...);
-int		printf_error(va_list ap);
-
-int		handle_string_fd(char *str, int fd);
-int		handle_flag_fd(char *str, int *len, va_list ap, int fd);
-
-int		flag_percent(int *len, int fd);
-
-#endif
+	i = 0;
+	bw = 0;
+	if (str)
+	{
+		while (str[i] && (str[i] != '%'))
+			i++;
+		bw = write(fd, str, i);
+	}
+	return (bw);
+}

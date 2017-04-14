@@ -6,7 +6,7 @@
 #    By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/20 19:43:49 by irhett            #+#    #+#              #
-#    Updated: 2017/03/22 22:32:57 by irhett           ###   ########.fr        #
+#    Updated: 2017/04/13 19:37:02 by irhett           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,9 @@ LIB			=	ar rc
 RLIB		=	ranlib
 
 SRC_DIR		=	src
-SRC_FILE	=	ft_printf.c ft_printf_fd.c printf_handle.c
+SRC_FILE	=	ft_printf.c ft_printf_fd.c handle_string_fd.c flag_percent.c \
+				#blah.c
+
 SRCS		=	$(addprefix $(SRC_DIR)/, $(SRC_FILE))
 
 OBJ_DIR		=	obj

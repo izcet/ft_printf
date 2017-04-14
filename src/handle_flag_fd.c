@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   handle_flag_fd.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/20 19:43:49 by irhett            #+#    #+#             */
-/*   Updated: 2017/04/13 19:33:28 by irhett           ###   ########.fr       */
+/*   Created: 2017/03/22 22:10:54 by irhett            #+#    #+#             */
+/*   Updated: 2017/04/13 22:04:45 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-#include "libft.h"
-#include <stdarg.h>
+// return the number of spaces to move along the string,
+// aka the number of characters interpreted that need to be skipped
+//
+// save the number of bytes written to { *len += n; }
 
-int		ft_printf(const char *str, ...);
-int		ft_printf_fd(int fd, const char *str, ...);
-int		printf_error(va_list ap);
+int		handle_flag_fd(char *str, int *len, va_list ap, int fd)
+{
+	int		ret;
 
-int		handle_string_fd(char *str, int fd);
-int		handle_flag_fd(char *str, int *len, va_list ap, int fd);
+	if (*str == '%')
+		return (flag_percent(len, fd))
 
-int		flag_percent(int *len, int fd);
 
-#endif
+
+
+}
