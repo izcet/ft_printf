@@ -6,7 +6,7 @@
 #    By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/20 19:43:49 by irhett            #+#    #+#              #
-#    Updated: 2017/04/13 19:37:02 by irhett           ###   ########.fr        #
+#    Updated: 2017/05/19 21:27:38 by irhett           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ clean:
 	@cd $(LIBFT_DIR) && make clean
 	@rm -rf $(OBJ_DIR)
 
-fclean:
+fclean: clean
 	@cd $(LIBFT_DIR) && make fclean
 	@rm -f $(NAME)
 

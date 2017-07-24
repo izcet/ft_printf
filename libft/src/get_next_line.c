@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 15:17:03 by irhett            #+#    #+#             */
-/*   Updated: 2017/02/15 17:40:17 by irhett           ###   ########.fr       */
+/*   Updated: 2017/04/18 22:18:53 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int		scan(char *str, int newline)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (str[i] == '\n' && newline)
+		if (str[i] == DELIM && newline)
 			return (i);
 		i++;
 	}
@@ -36,17 +36,17 @@ static int		copy(char *src, char **dst, char **stat, int fd)
 
 	ret = 0;
 	len = 0;
-	while ((src[len] != '\n') && (src[len] != '\0'))
+	while ((src[len] != DELIM) && (src[len] != '\0'))
 		len++;
 	dst[0] = (char*)malloc(sizeof(char) * len + 1);
 	i = 0;
-	while ((src[i] != '\n') && (src[i] != '\0'))
+	while ((src[i] != DELIM) && (src[i] != '\0'))
 	{
 		dst[0][i] = src[i];
 		i++;
 	}
 	dst[0][i] = '\0';
-	if (src[i] == '\n')
+	if (src[i] == DELIM)
 	{
 		ret = 1;
 		stat[fd] = gnl_concat(&(src[++i]), "", 0, 0);

@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/17 17:57:52 by irhett            #+#    #+#             */
-/*   Updated: 2016/11/19 23:36:58 by irhett           ###   ########.fr       */
+/*   Updated: 2017/06/23 00:03:11 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@ void	ft_putnbr_fd(int nb, int fd)
 {
 	if (nb == -2147483648)
 	{
-		ft_putchar_fd('-', fd);
-		ft_putchar_fd('2', fd);
-		ft_putnbr_fd((nb % 2000000000) * -1, fd);
+		ft_putstr_fd("-2147483648", fd);
 		return ;
 	}
 	else if (nb < 0)
@@ -32,7 +30,5 @@ void	ft_putnbr_fd(int nb, int fd)
 		ft_putnbr_fd(nb % 10, fd);
 	}
 	else if (nb < 10)
-	{
 		ft_putchar_fd(nb + '0', fd);
-	}
 }

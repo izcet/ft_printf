@@ -6,7 +6,7 @@
 /*   By: irhett <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 22:02:27 by irhett            #+#    #+#             */
-/*   Updated: 2017/03/10 23:47:12 by irhett           ###   ########.fr       */
+/*   Updated: 2017/07/24 12:10:05 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 # include <string.h>
 # include <unistd.h>
 
-# define BUFF_SIZE 32
+# define BUFF_SIZE	32
+# define DELIM		'\n'
 
 typedef struct		s_list
 {
@@ -42,6 +43,9 @@ typedef struct		s_double_matrix
 
 int					ft_atoi(char *str);
 char				*ft_itoa(int n);
+char				*ft_itoa_base(int n, unsigned int base);
+unsigned int		ft_pow(unsigned int n, unsigned int exp);
+unsigned int		ft_numlen(int n, int base);
 
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
@@ -121,6 +125,7 @@ char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
 
 int					ft_error(char *str);
+int					ft_equals(char *s1, char *s2);
 
 int					ft_usage(char *name, char *args);
 
@@ -146,6 +151,5 @@ t_dub_matrix		*mult_dub_matrix(t_dub_matrix *a, t_dub_matrix *b);
 
 int					*int_col(int **a, unsigned int col, unsigned int len);
 double				*dub_col(double **a, unsigned int col, unsigned int len);
-
 
 #endif

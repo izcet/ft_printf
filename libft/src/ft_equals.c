@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_usage.c                                         :+:      :+:    :+:   */
+/*   ft_equals.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/24 12:58:33 by irhett            #+#    #+#             */
-/*   Updated: 2017/04/06 18:08:40 by irhett           ###   ########.fr       */
+/*   Created: 2017/05/25 20:31:33 by irhett            #+#    #+#             */
+/*   Updated: 2017/07/24 12:11:18 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_usage(char *exec_name, char *args)
+/*
+** because F t_strcmp()
+*/
+
+int		ft_equals(char *s1, char *s2)
 {
-	ft_putstr("Usage: ");
-	ft_putstr(exec_name);
-	ft_putchar(' ');
-	ft_putendl(args);
+	if (ft_strcmp(s1, s2) == 0)
+		return (1);
 	return (0);
 }

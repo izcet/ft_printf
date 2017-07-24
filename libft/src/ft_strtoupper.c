@@ -16,5 +16,8 @@ void	ft_strtoupper(char *str)
 {
 	if (str)
 		while (*str)
+		{
 			*str = ft_toupper(*str);
+			str++;
+		}
 }
