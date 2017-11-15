@@ -16,6 +16,23 @@
 #include "libft.h"
 #include <stdarg.h>
 
+typedef struct		s_flags
+{
+	char			hash:2;
+	char			zero:2;
+	char			minus:2;
+	char			plus:2;
+	char			space:2;
+	char			star:2; // bonus
+	char			hh:2;
+	char			h:2;
+	char			ll:2;
+	char			l:2;
+	char			j:2;
+	char			z:2;
+	char			b:2; // bonus, binary mode
+}					t_flags;
+
 int		ft_printf(const char *str, ...);
 int		ft_printf_fd(int fd, const char *str, ...);
 int		printf_error(va_list ap);
