@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/22 22:10:54 by irhett            #+#    #+#             */
-/*   Updated: 2017/04/13 22:04:45 by irhett           ###   ########.fr       */
+/*   Updated: 2017/11/28 16:13:19 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 //
 // save the number of bytes written to { *len += n; }
 
-int		handle_flag_fd(char *str, int *len, va_list ap, int fd)
+int		handle_flag_fd(char **str, int *len, va_list ap, int fd)
 {
 	int		ret;
 
-	if (*str == '%')
+	if (**str == '%')
 		return (flag_percent(len, fd))
 
 

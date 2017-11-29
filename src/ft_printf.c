@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/22 21:47:55 by irhett            #+#    #+#             */
-/*   Updated: 2017/05/19 21:27:36 by irhett           ###   ########.fr       */
+/*   Updated: 2017/11/28 16:12:36 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,10 @@ int		ft_printf(const char *str, ...)
 	while (*str)
 	{
 		if (*str != '%')
-		{
-			ret = handle_string_fd(str, 1);
-			len += ret;
-			str += ret;
-		}
+			ret = handle_string_fd(&str, 1);
 		else
-		{
-			ret = handle_flag_fd(++str, &len, ap, 1);
-			str += ret;
-		}
+			ret = handle_flag_fd(&(++str), ap, 1);
+		len += ret;	
 		if (ret < 0)
 			return (printf_error(ap));
 	}
