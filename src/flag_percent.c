@@ -6,17 +6,13 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 19:21:26 by irhett            #+#    #+#             */
-/*   Updated: 2017/04/13 19:29:11 by irhett           ###   ########.fr       */
+/*   Updated: 2018/01/16 14:43:48 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		flag_percent(int *len, int fd)
+int		flag_percent(int fd)
 {
-	int		bw;
-
-	bw = write (fd, "%", 1);
-	(*len)++;
-	return (bw);
+	return (write(fd, "%", 1));
 }
