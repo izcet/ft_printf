@@ -6,13 +6,13 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:13:07 by irhett            #+#    #+#             */
-/*   Updated: 2018/01/17 13:42:10 by irhett           ###   ########.fr       */
+/*   Updated: 2018/01/17 14:03:59 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		handle_string_fd(char *str, int *len, int fd)
+int		handle_string_fd(const char *str, int *len, int fd)
 {
 	int		i;
 

@@ -6,7 +6,7 @@
 #    By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/20 19:43:49 by irhett            #+#    #+#              #
-#    Updated: 2018/01/17 13:41:36 by irhett           ###   ########.fr        #
+#    Updated: 2018/01/17 14:14:06 by irhett           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,9 +19,10 @@ RLIB		=	ranlib
 
 SRC_DIR		=	src
 SRC_FILE	=	ft_printf.c \
+				printf_error.c \
+				handle_flag_fd.c \
 				handle_string_fd.c \
 				flag_percent.c \
-				#blah.c
 
 SRCS		=	$(addprefix $(SRC_DIR)/, $(SRC_FILE))
 
@@ -31,7 +32,7 @@ OBJS		=	$(addprefix $(OBJ_DIR)/, $(OBJ_FILE))
 
 LIBFT_DIR	=	libft
 LIBFT_LIB	=	libft.a
-LIBFT_INC	=	includes
+LIBFT_INC	=	inc
 LIBFT		=	$(LIBFT_DIR)/$(LIBFT_LIB)
 
 INC_DIR		=	-I $(LIBFT_DIR)/$(LIBFT_INC) -I inc
@@ -43,7 +44,6 @@ all: $(LIBFT) $(NAME)
 $(NAME): $(SRCS) | $(OBJS)
 	@$(LIB) $@ $(OBJS)
 	$(RLIB) $(NAME)
-	#$(CC) $(CFLAGS) $(LIBFT) $(OBJS) $(INC_DIR) -o $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	@$(CC) -c $^ $(CFLAGS) $(INC_DIR) -o $@

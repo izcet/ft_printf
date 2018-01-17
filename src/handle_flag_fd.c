@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/22 22:10:54 by irhett            #+#    #+#             */
-/*   Updated: 2018/01/17 13:42:22 by irhett           ###   ########.fr       */
+/*   Updated: 2018/01/17 14:17:17 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 //
 // save the number of bytes written to { *len += n; }
 
-int		handle_flag_fd(char *str, int *len, va_list ap, int fd)
+int		handle_flag_fd(const char *str, int *len, va_list ap, int fd)
 {
 	int		ret;
 
@@ -25,6 +25,7 @@ int		handle_flag_fd(char *str, int *len, va_list ap, int fd)
 		ret = flag_percent(fd);
 	else //if () //TODO
 	{
+		ret = 1; // something else
 		(void)ap;
 		; //TODO 
 	}
