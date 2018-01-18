@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 19:43:49 by irhett            #+#    #+#             */
-/*   Updated: 2018/01/17 14:03:39 by irhett           ###   ########.fr       */
+/*   Updated: 2018/01/17 18:58:15 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,19 @@ int		printf_error(va_list ap);
 int		flag_percent(int fd);
 
 // man 3 printf
-
-// diouxX (int or appropriate variant)
+////////////////////// FLAGS ////////////////////////////////////////////////
+//INTEGERS
+// di (signed decimal)
+// o unsigned octal
+// u unsigned decimal
+// xX unsigned hex xlower XUPPER
 // DOU (long int variant) (ld lo lu)
-// C (c with l) // TODO: ignore wchars?
-// c (unsigned char)
-// S (s with l) // TODO: ignore wchars?
+// c (unsigned char) (putchar)
+
 // s (putstr)
 // p (void pointer printed as hex. `%#x` or `%#lx`
 
+////////////////////////////////////////////////////////////////////////////
 // hh
 // - [di] signed char
 // - [ouxX] unsigned char
@@ -89,11 +93,26 @@ int		flag_percent(int fd);
 // - [di] signed type equivalent to size_t
 // - [ouxX] size_t
 
+
+// (minimum field width)
+//  - optional decimal digit string
+//  - padded with spaces on the right to meet the field width
+//  - %12i // if %i is less than 12 digits, pad with spaces
+
+// . (dot) (optional precision)
+// 	- an optional precision followed by an optional digit string.
+// 	- if the string is omitted the precision is 0.
+// 	- minimum number of digits to appear for diouxX
+// 	- number of digits to appear after the decimal for aAeEfF
+// 	- max number of significant digits for gG
+// 	- max number of characters to be printed from a 's'
+
 // # (hash) alternate form.
 //  - 'c' 'd' 'i' 'p' 's' 'u' no effect
 // 	- 'o' force first character of output string to 0
 // 	- 'x' or 'X', a nonzero result has the `0x` or `0X` prepended
-// 	
+	
+
 // 0 (zero) zero padding. for all conversions except 'n' (not included)
 // 	- the converted value is padded on the left with zeros rather than blanks
 // 	- if a precision is given with a neumeric conversion (d, i, o u, x, X)
@@ -109,17 +128,5 @@ int		flag_percent(int fd);
 //
 // + (plus)
 //  - a sign must be placed before a signed number. overrides a space
-//  
-// (minimum field width)
-//  - optional decimal digit string
-//  - padded with spaces on the right to meet the field width
-//  - %12i // if %i is less than 12 digits, pad with spaces
-//
-// . (dot) (optional precision)
-// 	- an optional precision followed by an optional digit string.
-// 	- if the string is omitted the precision is 0.
-// 	- minimum number of digits to appear for diouxX
-// 	- number of digits to appear after the decimal for aAeEfF
-// 	- max number of significant digits for gG
-// 	- max number of characters to be printed from a 's'
+
 #endif
