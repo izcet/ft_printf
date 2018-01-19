@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 19:43:49 by irhett            #+#    #+#             */
-/*   Updated: 2018/01/17 18:58:15 by irhett           ###   ########.fr       */
+/*   Updated: 2018/01/18 20:26:06 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,33 @@
 #include "libft.h"
 #include <stdarg.h>
 
+#define PF_NONE 0
+#define PF_BOLD 1
+#define PF_UNDR 4
+#define PF_BLNK 5
+#define PF_RVRS 7
+#define PF_HIDE 8
+
+#define PF_BLK 30
+#define PF_RED 31
+#define PF_GRN 32
+#define PF_YEL 33
+#define PF_BLU 34
+#define PF_MAG 35
+#define PF_CYA 36
+#define PF_WHI 37
+
+#define PF_BG_BLK 40
+#define PF_BG_RED 41
+#define PF_BG_GRN 42
+#define PF_BG_YEL 43
+#define PF_BG_BLU 44
+#define PF_BG_MAG 45
+#define PF_BG_CYA 46
+#define PF_BG_WHI 47
+
+static int	(*conv_func[256])(int *, va_list, t_data *);
+
 typedef struct		s_flags
 {
 	char			hash:2;
@@ -24,15 +51,22 @@ typedef struct		s_flags
 	char			plus:2;
 	char			space:2;
 	char			star:2; // bonus // asterisk
-	char			color:2; //bonus //TODO type format
+	// something something field width
 	char			hh:2;
 	char			h:2;
 	char			ll:2;
 	char			l:2;
 	char			j:2;
 	char			z:2;
-	char			b:2; // bonus, binary mode
 }					t_flags;
+
+typedef struct		s_pf_data
+{
+	t_flags			flag;
+	int				fd;
+	char			conv
+}					t_pf_data;
+
 
 /*
 ** ft_printf.c
@@ -41,19 +75,79 @@ int		ft_printf(const char *str, ...);
 int		ft_printf_fd(int fd, const char *str, ...);
 
 /*
-** handle_flag_fd.c
+** handle_others_fd.c
 */
-int		handle_flag_fd(const char *str, int *len, va_list ap, int fd);
+int		handle_others_fd(const char *str, int *len, va_list ap, int fd);
 
 /*
 ** handle_string_fd.c
 */
 int		handle_string_fd(const char *str, int *len, int fd);
 
+/*
+** select_conv.c
+*/
+char	select_conv(const char *str);
 
-// TODO
+/*
+** conv_color.c
+*/
+int		conv_color(const char *str, int *len, int fd);
+
+/*
+** printf_error.c
+*/
 int		printf_error(va_list ap);
-int		flag_percent(int fd);
+
+
+//TODO
+
+/*
+** collect_flags.c
+*/
+int		collect_flags(const char *str, va_list ap, t_flags *flags, char conv);
+
+/*
+** conversions.c
+*/
+void	setup_conv_func-arr(void);
+int		dispatch_conv(const char *str, int *len, va_list ap, t_data *d);
+
+/*
+** conv_integer.c
+*/
+int		conv_int_dec(int *len, va_list ap, t_data *data);
+int		conv_int_oct(int *len, va_list ap, t_data *data);
+int		conv_int_dec_u(int *len, va_list ap, t_data *data);
+int		conv_int_hex(int *len, va_list ap, t_data *data);
+int		conv_int_HEX(int *len, va_list ap, t_data *data);
+
+/*
+** conv_long.c
+*/
+int		conv_long_dec(int *len, va_list ap, t_data *data);
+int		conv_long_oct(int *len, va_list ap, t_data *data);
+int		conv_long_dec_u(int *len, va_list ap, t_data *data);
+
+/*
+** conv_other.c
+*/
+int		conv_char(int *len, va_list ap, t_data *data);
+int		conv_pointer(int *len, va_list ap, t_data *data);
+int		conv_binary(int *len, va_list ap, t_data *data);
+
+/*
+** conv_string.c
+*/
+int		conv_string(int *len, va_list ap, t_data *data);
+int		conv_string_raw(int *len, va_list ap, t_data *data);
+
+
+/*
+** conv_percent.c
+*/
+int		conv_percent(int *len, va_list ap, t_data *data);
+
 
 // man 3 printf
 ////////////////////// FLAGS ////////////////////////////////////////////////
@@ -67,6 +161,10 @@ int		flag_percent(int fd);
 
 // s (putstr)
 // p (void pointer printed as hex. `%#x` or `%#lx`
+// % (percent character literal)
+
+// r (raw) (my bonus) // like str but with other data
+// b (binary) (bonus) // like int
 
 ////////////////////////////////////////////////////////////////////////////
 // hh

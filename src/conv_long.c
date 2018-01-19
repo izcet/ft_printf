@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_flag_fd.c                                   :+:      :+:    :+:   */
+/*   conv_long.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/22 22:10:54 by irhett            #+#    #+#             */
-/*   Updated: 2018/01/17 14:17:17 by irhett           ###   ########.fr       */
+/*   Created: 2018/01/18 20:23:04 by irhett            #+#    #+#             */
+/*   Updated: 2018/01/18 20:23:28 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-// return the number of spaces to move along the string,
-// aka the number of characters interpreted that need to be skipped
-//
-// save the number of bytes written to { *len += n; }
-
-int		handle_flag_fd(const char *str, int *len, va_list ap, int fd)
+int		conv_long_dec(int *len, va_list ap, t_data *data)
 {
-	int		ret;
+	(void)len;
+	(void)ap;
+	(void)data;
+}
 
-	if (*str == '%')
-		ret = flag_percent(fd);
-	else //if () //TODO
-	{
-		ret = 1; // something else
-		(void)ap;
-		; //TODO 
-	}
-	*len += ret;
-	return (ret);
+int		conv_long_dec_u(int *len, va_list ap, t_data *data)
+{
+	(void)len;
+	(void)ap;
+	(void)data;
+}
+
+int		conv_long_oct(int *len, va_list ap, t_data *data)
+{
+	(void)len;
+	(void)ap;
+	(void)data;
 }

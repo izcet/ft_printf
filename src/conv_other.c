@@ -1,18 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flag_percent.c                                     :+:      :+:    :+:   */
+/*   conv_other.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/13 19:21:26 by irhett            #+#    #+#             */
-/*   Updated: 2018/01/16 14:43:48 by irhett           ###   ########.fr       */
+/*   Created: 2018/01/18 20:23:33 by irhett            #+#    #+#             */
+/*   Updated: 2018/01/18 20:23:47 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		flag_percent(int fd)
+int		conv_char(int *len, va_list ap, t_data *data)
 {
-	return (write(fd, "%", 1));
+	(void)len;
+	(void)ap;
+	(void)data;
+}
+
+int		conv_pointer(int *len, va_list ap, t_data *data)
+{
+	(void)len;
+	(void)ap;
+	(void)data;
+}
+
+int		conv_binary(int *len, va_list ap, t_data *data)
+{
+	(void)len;
+	(void)ap;
+	(void)data;
 }

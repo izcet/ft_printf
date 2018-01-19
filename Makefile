@@ -6,7 +6,7 @@
 #    By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/20 19:43:49 by irhett            #+#    #+#              #
-#    Updated: 2018/01/17 14:14:06 by irhett           ###   ########.fr        #
+#    Updated: 2018/01/18 20:26:08 by irhett           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,17 @@ RLIB		=	ranlib
 SRC_DIR		=	src
 SRC_FILE	=	ft_printf.c \
 				printf_error.c \
-				handle_flag_fd.c \
 				handle_string_fd.c \
-				flag_percent.c \
+				handle_others_fd.c \
+				collect_flags.c \
+				select_conv.c \
+				conversions.c \
+				conv_color.c \
+				conv_integer.c \
+				conv_long.c \
+				conv_other.c \
+				conv_string.c \
+				conv_percent.c \
 
 SRCS		=	$(addprefix $(SRC_DIR)/, $(SRC_FILE))
 

@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/22 21:47:55 by irhett            #+#    #+#             */
-/*   Updated: 2018/01/16 14:06:37 by irhett           ###   ########.fr       */
+/*   Updated: 2018/01/18 14:56:40 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		ft_printf(const char *str, ...)
 	while (*str)
 	{
 		if (*str == '%')
-			ret = handle_flag_fd(++str, &len, ap, 1);
+			ret = handle_others_fd(++str, &len, ap, 1);
 		else
 			ret = handle_string_fd(str, &len, 1);
 		str += ret;
@@ -45,7 +45,7 @@ int		ft_printf_fd(int fd, const char *str, ...)
 	while (*str)
 	{
 		if (*str == '%')
-			ret = handle_flag_fd(++str, &len, ap, fd);
+			ret = handle_others_fd(++str, &len, ap, fd);
 		else
 			ret = handle_string_fd(str, &len, fd);
 		str += ret;

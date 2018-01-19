@@ -6,16 +6,18 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 13:54:28 by irhett            #+#    #+#             */
-/*   Updated: 2018/01/17 18:57:42 by irhett           ###   ########.fr       */
+/*   Updated: 2018/01/18 16:01:51 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-#define NEWLINE write(1, "\n", 1);
-#define T(foo) printf(foo); ft_printf(foo); NEWLINE;
-#define TT(foo, bar) printf(foo, bar) ; ft_printf(foo, bar); NEWLINE;
+#define NEWLINE write(1, "||||||||||||||||||||||||||||||\n\n", 32);
+#define PF printf
+
+#define T(foo) PF("pf:\n"); PF(foo); PF("ft:\n"); ft_printf(foo); NEWLINE;
+#define TT(a, b) PF("pf:\n"); PF(a, b) ; PF("ft:\n"); ft_printf(a, b); NEWLINE;
 
 int		main(int argc, char **argv)
 {
@@ -42,6 +44,19 @@ int		main(int argc, char **argv)
 
 	TT("%.2s\n", "hello");
 
+
+	PF("[%% %%\\n]\n");
+	T("% %\n");
+
+	PF("[%%]\n");
+	T("%");
+
+	PF("[%% %%%% %%%%%% %%%%%%%% %%%%%%%%%%\\n\n]\n");
+	T("% %% %%% %%%% %%%%%\n");
+	
+	T("\\\n");
+	T("\ a\nb \tc\n");
+	
 	(void)argc;
 	(void)argv;
 	return (0);
