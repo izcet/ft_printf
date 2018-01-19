@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 16:23:11 by irhett            #+#    #+#             */
-/*   Updated: 2018/01/18 18:17:20 by irhett           ###   ########.fr       */
+/*   Updated: 2018/01/18 20:30:58 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int			conv_color(const char *str, int *len int fd)
 {
 	unsigned int	i;
 	int				ret;
-	static char		escape = { 033, 0133 };
+	static char		escape[] = { 033, 0133 };
 
 	i = 0;
 	ret = -1;
