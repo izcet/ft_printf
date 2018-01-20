@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 16:23:11 by irhett            #+#    #+#             */
-/*   Updated: 2018/01/18 20:30:58 by irhett           ###   ########.fr       */
+/*   Updated: 2018/01/19 20:16:56 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	is_valid_color(const char *str)
 	return (0);
 }
 
-int			conv_color(const char *str, int *len int fd)
+int			conv_color(const char *str, int *len, int fd)
 {
 	unsigned int	i;
 	int				ret;

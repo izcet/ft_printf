@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 19:43:49 by irhett            #+#    #+#             */
-/*   Updated: 2018/01/18 20:26:06 by irhett           ###   ########.fr       */
+/*   Updated: 2018/01/19 20:16:27 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@
 #define PF_BG_CYA 46
 #define PF_BG_WHI 47
 
-static int	(*conv_func[256])(int *, va_list, t_data *);
 
 typedef struct		s_flags
 {
@@ -64,9 +63,10 @@ typedef struct		s_pf_data
 {
 	t_flags			flag;
 	int				fd;
-	char			conv
+	char			conv;
 }					t_pf_data;
 
+static int	(*conv_func[256])(int *, va_list, t_pf_data *);
 
 /*
 ** ft_printf.c
@@ -110,43 +110,43 @@ int		collect_flags(const char *str, va_list ap, t_flags *flags, char conv);
 /*
 ** conversions.c
 */
-void	setup_conv_func-arr(void);
-int		dispatch_conv(const char *str, int *len, va_list ap, t_data *d);
+void	setup_conv_func_arr(void);
+int		dispatch_conv(int *len, va_list ap, t_pf_data *d);
 
 /*
 ** conv_integer.c
 */
-int		conv_int_dec(int *len, va_list ap, t_data *data);
-int		conv_int_oct(int *len, va_list ap, t_data *data);
-int		conv_int_dec_u(int *len, va_list ap, t_data *data);
-int		conv_int_hex(int *len, va_list ap, t_data *data);
-int		conv_int_HEX(int *len, va_list ap, t_data *data);
+int		conv_int_dec(int *len, va_list ap, t_pf_data *data);
+int		conv_int_oct(int *len, va_list ap, t_pf_data *data);
+int		conv_int_dec_u(int *len, va_list ap, t_pf_data *data);
+int		conv_int_hex(int *len, va_list ap, t_pf_data *data);
+int		conv_int_HEX(int *len, va_list ap, t_pf_data *data);
 
 /*
 ** conv_long.c
 */
-int		conv_long_dec(int *len, va_list ap, t_data *data);
-int		conv_long_oct(int *len, va_list ap, t_data *data);
-int		conv_long_dec_u(int *len, va_list ap, t_data *data);
+int		conv_long_dec(int *len, va_list ap, t_pf_data *data);
+int		conv_long_oct(int *len, va_list ap, t_pf_data *data);
+int		conv_long_dec_u(int *len, va_list ap, t_pf_data *data);
 
 /*
 ** conv_other.c
 */
-int		conv_char(int *len, va_list ap, t_data *data);
-int		conv_pointer(int *len, va_list ap, t_data *data);
-int		conv_binary(int *len, va_list ap, t_data *data);
+int		conv_char(int *len, va_list ap, t_pf_data *data);
+int		conv_pointer(int *len, va_list ap, t_pf_data *data);
+int		conv_binary(int *len, va_list ap, t_pf_data *data);
 
 /*
 ** conv_string.c
 */
-int		conv_string(int *len, va_list ap, t_data *data);
-int		conv_string_raw(int *len, va_list ap, t_data *data);
+int		conv_string(int *len, va_list ap, t_pf_data *data);
+int		conv_string_raw(int *len, va_list ap, t_pf_data *data);
 
 
 /*
 ** conv_percent.c
 */
-int		conv_percent(int *len, va_list ap, t_data *data);
+int		conv_percent(int *len, va_list ap, t_pf_data *data);
 
 
 // man 3 printf

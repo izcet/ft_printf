@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 14:54:33 by irhett            #+#    #+#             */
-/*   Updated: 2018/01/18 19:22:43 by irhett           ###   ########.fr       */
+/*   Updated: 2018/01/19 16:05:13 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		handle_others_fd(const char *str, int *len, va_list ap, int fd)
 		ret = conv_color(str, len, fd);
 	else
 	{
-		ret = collect_flags(str, ap, &(data.flags), data.conv);
+		ret = collect_flags(str, ap, &(data.flag), data.conv);
 		if (ret < 0)
 			return (ret);
 		ret = dispatch_conv(str, len, ap, &(data));

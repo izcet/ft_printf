@@ -6,13 +6,13 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 19:21:26 by irhett            #+#    #+#             */
-/*   Updated: 2018/01/18 20:22:10 by irhett           ###   ########.fr       */
+/*   Updated: 2018/01/19 20:17:42 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		conv_percent(int *len, va_list ap, t_data *data)
+int		conv_percent(int *len, va_list ap, t_pf_data *data)
 {
 	int		ret;
 

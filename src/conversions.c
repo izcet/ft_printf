@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 19:26:24 by irhett            #+#    #+#             */
-/*   Updated: 2018/01/18 19:45:32 by irhett           ###   ########.fr       */
+/*   Updated: 2018/01/19 20:16:18 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ void	setup_conv_func_arr(void)
 	}
 }
 
-int		dispatch_conv(const char *str, int *len, va_list ap, t_data *data)
+int		dispatch_conv(int *len, va_list ap, t_pf_data *data)
 {
 	setup_conv_func_arr();
 	// may need to dereference a pointer somewhere
-	return (conv_func[data->conv](len, ap, data));
+	return (conv_func[(int)data->conv](len, ap, data));
 }
