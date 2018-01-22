@@ -6,13 +6,13 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 20:22:30 by irhett            #+#    #+#             */
-/*   Updated: 2018/01/19 20:19:13 by irhett           ###   ########.fr       */
+/*   Updated: 2018/01/21 19:48:53 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		conv_int_HEX(int *len, va_list ap, t_pf_data *data)
+int		conv_int_hex_u(int *len, va_list ap, t_pf_data *data)
 {
 	(void)len;
 	(void)ap;

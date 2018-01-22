@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 19:26:24 by irhett            #+#    #+#             */
-/*   Updated: 2018/01/19 20:16:18 by irhett           ###   ########.fr       */
+/*   Updated: 2018/01/21 19:49:24 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	setup_conv_func_arr(void)
 		conv_func['p'] = conv_pointer;
 		conv_func['%'] = conv_percent;
 		conv_func['r'] = conv_string_raw;
-		conv_func['b'] = conv_binary;     
+		conv_func['b'] = conv_binary;
 	}
 }
 

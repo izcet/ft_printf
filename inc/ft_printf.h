@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 19:43:49 by irhett            #+#    #+#             */
-/*   Updated: 2018/01/19 20:16:27 by irhett           ###   ########.fr       */
+/*   Updated: 2018/01/21 19:48:59 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,6 @@
 
 #include "libft.h"
 #include <stdarg.h>
-
-#define PF_NONE 0
-#define PF_BOLD 1
-#define PF_UNDR 4
-#define PF_BLNK 5
-#define PF_RVRS 7
-#define PF_HIDE 8
-
-#define PF_BLK 30
-#define PF_RED 31
-#define PF_GRN 32
-#define PF_YEL 33
-#define PF_BLU 34
-#define PF_MAG 35
-#define PF_CYA 36
-#define PF_WHI 37
-
-#define PF_BG_BLK 40
-#define PF_BG_RED 41
-#define PF_BG_GRN 42
-#define PF_BG_YEL 43
-#define PF_BG_BLU 44
-#define PF_BG_MAG 45
-#define PF_BG_CYA 46
-#define PF_BG_WHI 47
-
 
 typedef struct		s_flags
 {
@@ -120,7 +94,7 @@ int		conv_int_dec(int *len, va_list ap, t_pf_data *data);
 int		conv_int_oct(int *len, va_list ap, t_pf_data *data);
 int		conv_int_dec_u(int *len, va_list ap, t_pf_data *data);
 int		conv_int_hex(int *len, va_list ap, t_pf_data *data);
-int		conv_int_HEX(int *len, va_list ap, t_pf_data *data);
+int		conv_int_hex_u(int *len, va_list ap, t_pf_data *data);
 
 /*
 ** conv_long.c

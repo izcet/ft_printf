@@ -6,22 +6,24 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 14:54:33 by irhett            #+#    #+#             */
-/*   Updated: 2018/01/19 16:05:13 by irhett           ###   ########.fr       */
+/*   Updated: 2018/01/21 19:47:16 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-// return the number of spaces to move along the string,
-// aka the number of characters interpreted that need to be skipped
-//
-// save the number of bytes written to { *len += n; }
+/*
+** return the number of spaces to move along the string,
+** aka the number of characters interpreted that need to be skipped
+**
+** save the number of bytes written to { *len += n; }
+*/
 
 int		handle_others_fd(const char *str, int *len, va_list ap, int fd)
 {
 	int			ret;
 	t_pf_data	data;
-	
+
 	data.conv = select_conv(str);
 	if (data.conv == 0)
 		return (-1);
