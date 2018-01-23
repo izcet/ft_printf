@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 13:54:28 by irhett            #+#    #+#             */
-/*   Updated: 2018/01/18 16:01:51 by irhett           ###   ########.fr       */
+/*   Updated: 2018/01/22 20:24:31 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@
 
 int		main(int argc, char **argv)
 {
-	char 			*test = "hello";
-	unsigned int	uintmax;
+///	char 			*test = "hello";
+	unsigned long long	uintmax;
 
 	uintmax = 0;
 	uintmax--;
 
-	TT("%d\n", uintmax);
+/*	TT("%d\n", uintmax);
 	TT("%i\n", uintmax);
 	TT("%o\n", uintmax);
 	TT("%u\n", uintmax);
@@ -56,7 +56,11 @@ int		main(int argc, char **argv)
 	
 	T("\\\n");
 	T("\ a\nb \tc\n");
-	
+
+*/
+//	TT("%zllu\n", uintmax);
+
+	printf("%0*9*6*4*i\n", 1, 2, 4, 5, 69);
 	(void)argc;
 	(void)argv;
 	return (0);

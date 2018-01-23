@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 19:43:49 by irhett            #+#    #+#             */
-/*   Updated: 2018/01/21 19:48:59 by irhett           ###   ########.fr       */
+/*   Updated: 2018/01/22 20:30:11 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,18 @@
 
 typedef struct		s_flags
 {
-	char			hash:2;
-	char			zero:2;
-	char			minus:2;
-	char			plus:2;
-	char			space:2;
-	char			star:2; // bonus // asterisk
-	// something something field width
-	char			hh:2;
-	char			h:2;
-	char			ll:2;
-	char			l:2;
-	char			j:2;
-	char			z:2;
+	int				width;
+	int				precision;
+	char			dot:1;
+	char			hash:1;
+	char			zero:1;
+	char			minus:1;
+	char			plus:1;
+	char			space:1;
+	char			j:1;
+	char			z:1;
+	unsigned char	h:2; // 0 1 2
+	unsigned char	l:2; // 0 1 2
 }					t_flags;
 
 typedef struct		s_pf_data
@@ -68,6 +67,7 @@ char	select_conv(const char *str);
 */
 int		conv_color(const char *str, int *len, int fd);
 
+//	- *33$
 /*
 ** printf_error.c
 */
@@ -95,6 +95,7 @@ int		conv_int_oct(int *len, va_list ap, t_pf_data *data);
 int		conv_int_dec_u(int *len, va_list ap, t_pf_data *data);
 int		conv_int_hex(int *len, va_list ap, t_pf_data *data);
 int		conv_int_hex_u(int *len, va_list ap, t_pf_data *data);
+//	- *33$
 
 /*
 ** conv_long.c
@@ -176,16 +177,15 @@ int		conv_percent(int *len, va_list ap, t_pf_data *data);
 // 	- if the string is omitted the precision is 0.
 // 	- minimum number of digits to appear for diouxX
 // 	- number of digits to appear after the decimal for aAeEfF
-// 	- max number of significant digits for gG
 // 	- max number of characters to be printed from a 's'
 
 // # (hash) alternate form.
 //  - 'c' 'd' 'i' 'p' 's' 'u' no effect
 // 	- 'o' force first character of output string to 0
 // 	- 'x' or 'X', a nonzero result has the `0x` or `0X` prepended
-	
 
-// 0 (zero) zero padding. for all conversions except 'n' (not included)
+
+// 0 (zero) zero padding. for all conversions except
 // 	- the converted value is padded on the left with zeros rather than blanks
 // 	- if a precision is given with a neumeric conversion (d, i, o u, x, X)
 // 		then the 0 flag is ignored
@@ -200,5 +200,9 @@ int		conv_percent(int *len, va_list ap, t_pf_data *data);
 //
 // + (plus)
 //  - a sign must be placed before a signed number. overrides a space
-
+//
+// * (asterisk)
+//	- field width
+//	- * ==> va_arg(ap, int);
+//	- negative field width is left adjustment with positive fw.
 #endif

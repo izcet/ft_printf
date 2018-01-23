@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 19:26:24 by irhett            #+#    #+#             */
-/*   Updated: 2018/01/21 19:49:24 by irhett           ###   ########.fr       */
+/*   Updated: 2018/01/22 20:29:55 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	setup_conv_func_arr(void)
 		conv_func['o'] = conv_int_oct;
 		conv_func['u'] = conv_int_dec_u;
 		conv_func['x'] = conv_int_hex;
-		conv_func['x'] = conv_int_HEX;
+		conv_func['x'] = conv_int_hex_u;
 		conv_func['D'] = conv_long_dec;
 		conv_func['O'] = conv_long_oct;
 		conv_func['U'] = conv_long_dec_u;
@@ -37,6 +37,5 @@ void	setup_conv_func_arr(void)
 int		dispatch_conv(int *len, va_list ap, t_pf_data *data)
 {
 	setup_conv_func_arr();
-	// may need to dereference a pointer somewhere
 	return (conv_func[(int)data->conv](len, ap, data));
 }
