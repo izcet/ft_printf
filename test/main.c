@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/04 18:30:03 by irhett            #+#    #+#             */
-/*   Updated: 2018/03/04 18:48:01 by irhett           ###   ########.fr       */
+/*   Updated: 2018/03/04 18:58:03 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void gat(char *str) { printf("gat: %s\n", str); }
 
 void	setup_functions(void)
 {
+	functions[0] = (void (*)(char *))1;
+
 	functions[1] = foo;
 	functions[3] = bar;
 	functions[4] = baz;
@@ -34,13 +36,13 @@ void	setup_functions(void)
 	functions[78] = wil;
 	functions[9] = wintergatan;
 	functions[128] = win;
-	functions[66] = ter;
+	functions['s'] = ter;
 	functions[69] = gat;
 }
 
 void	dispatch(int i, char *str)
 {
-
+/*
 	printf("%p\n", functions[0]);
 	functions[0] = (void (*)(char*))1;
 	printf("%p\n", functions[0]);
@@ -48,30 +50,24 @@ void	dispatch(int i, char *str)
 	printf("%p\n", functions[1]);
 	setup_functions();
 	printf("%p\n", functions[1]);
+*/
 
+	if (!functions[0])
+		setup_functions();
 
-/*	if (functions[i])
+	if (functions[i] && i != 0)
 		functions[i](str);
 	else
 		printf("no function %i\n", i);
-		*/
-	(void)i;
-	(void)str;
 }
 
-int		main(int argc, char ** argv)
+int		main(void)
 {
 	int		i;
 
-	if (argc < 2)
-	{
-		printf("insufficient arguments\n");
-		return (0);
-	}
-
 	i = 0;
-//	while (i < 256)
-		dispatch(i++, argv[1]);
+	while (i < 256)
+		dispatch(i++, "I'm a function!");
 
 	return (0);
 }
